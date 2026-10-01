@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-ar="المؤسسة الدولية للتحكيم الدولي والتدريب | 00966548817784" data-en="I.F.I.A | International Arbitration & Training — 00966548817784">المؤسسة الدولية للتحكيم الدولي والتدريب | 00966548817784</title>
+<meta name="description" data-ar="التحكيم الدولي لتسوية المنازعات، منازعات الملكية الفكرية، مجال الاستثمار، صياغة العقود — دورات ودبلومات معتمدة." data-en="International arbitration for dispute settlement, intellectual property disputes, investment, and contract drafting — accredited courses and diplomas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+/* ── Design tokens: deliberately non-default to avoid the generic Tailwind look ── */
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:   { DEFAULT: '#1A365D', 900: '#0B1B33', 700: '#1A365D', 500: '#2C4E7A', 300: '#4A6D99' },
+        gold:   { DEFAULT: '#C5A880', light: '#E0CDA9', dark: '#8F7550', tint: '#F3EBDD' },
+        cloud:  '#F7FAFC',
+        bone:   '#EDE9E1',
+        charcoal:'#2D3748'
+      },
+      fontFamily: {
+        display: ['Amiri', 'Georgia', 'serif'],
+        body:    ['Cairo', 'system-ui', 'sans-serif']
+      },
+      /* Sharp corners everywhere — the #1 fix for the "vibe coded" default look */
+      borderRadius: { none:'0', sm:'0', DEFAULT:'0', md:'0', lg:'0', xl:'0', '2xl':'0', '3xl':'0', full:'9999px' },
+      fontSize: {
+        'display': ['clamp(2.75rem, 7vw, 5rem)', { lineHeight: '1.04', letterSpacing: '-0.015em' }],
+        'title':   ['clamp(1.85rem, 3.6vw, 2.9rem)', { lineHeight: '1.12' }],
+        'lead':    ['clamp(1.05rem, 1.6vw, 1.25rem)', { lineHeight: '1.75' }]
+      },
+      letterSpacing: { 'wider2': '0.18em' },
+      boxShadow: {
+        panel: '0 24px 60px -30px rgba(11,27,51,0.45)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root { --hairline: rgba(26,54,93,.16); }
+  html { scroll-behavior: smooth; }
+  html[lang="en"] body { font-family: 'Inter', system-ui, sans-serif; }
+  html[lang="en"] .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+  body {
+    background-image:
+      linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-position: center top;
+  }
+  section, header, footer { background-clip: content-box; }
+
+  /* Flat, textured hero — no gradient hero header */
+  .hero-flat {
+    background-color: #0B1B33;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%23C5A880' stroke-opacity='0.09'%3E%3Cpath d='M0 70h140M70 0v140'/%3E%3Cpath d='M20 20h20v20H20zM100 100h20v20h-20z' stroke-opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-ghost {
+    -webkit-text-stroke: 1px rgba(197,168,128,.28);
+    color: transparent;
+    letter-spacing: .04em;
+  }
+
+  /* Ticker */
+  .ticker-mask { overflow: hidden; }
+  .ticker-track { display: flex; width: max-content; animation: ticker 32s linear infinite; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker-track:hover { animation-play-state: paused; }
+
+  /* Underline link */
+  .u-link { position: relative; }
+  .u-link::after { content:''; position:absolute; bottom:-5px; inset-inline-start:0; width:0; height:1.5px; background:#C5A880; transition:width .25s ease; }
+  .u-link:hover::after, .u-link.active::after { width:100%; }
+
+  .btn-gold { background:#C5A880; color:#0B1B33; transition: background .2s ease, color .2s ease; }
+  .btn-gold:hover { background:#0B1B33; color:#C5A880; box-shadow: inset 0 0 0 1px #C5A880; }
+  .btn-ghost { box-shadow: inset 0 0 0 1px rgba(197,168,128,.55); color:#E0CDA9; transition: all .2s ease; }
+  .btn-ghost:hover { background:#C5A880; color:#0B1B33; box-shadow: inset 0 0 0 1px #C5A880; }
+
+  .panel { background:#fff; box-shadow: inset 0 0 0 1px var(--hairline); transition: box-shadow .25s ease, transform .25s ease; }
+  .panel:hover { box-shadow: inset 0 0 0 1px #C5A880; transform: translateY(-4px); }
+
+  .reveal { opacity:0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.on { opacity:1; transform:none; }
+
+  dialog::backdrop { background: rgba(11,27,51,.7); backdrop-filter: blur(4px); }
+  .bidi { unicode-bidi: isolate; }
+  input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 2px solid #C5A880; outline-offset: 2px; }
+
+  ::selection { background:#C5A880; color:#0B1B33; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background:#EDE9E1; }
+  ::-webkit-scrollbar-thumb { background:#1A365D; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ticker-track { animation: none; }
+    .reveal { opacity:1; transform:none; transition:none; }
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+</head>
+
+<body class="bg-cloud text-charcoal font-body antialiased">
+
+<!-- ══════════ UTILITY BAR (actual contact data from the original site) ══════════ -->
+<div class="hidden border-b border-gold/25 bg-navy-900 text-[13px] text-white/75 md:block">
+  <div class="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-6 py-2">
+    <div class="flex items-center gap-6">
+      <span class="flex items-center gap-2">
+        <span class="text-gold text-xs font-bold" data-ar="السعودية" data-en="KSA">السعودية</span>
+        <a href="tel:+966548817784" dir="ltr" class="bidi font-semibold text-white hover:text-gold transition">00966548817784</a>
+      </span>
+      <span class="h-3 w-px bg-white/20"></span>
+      <span class="flex items-center gap-2">
+        <span class="text-gold text-xs font-bold" data-ar="مصر" data-en="EGYPT">مصر</span>
+        <a href="tel:+201001229632" dir="ltr" class="bidi font-semibold text-white hover:text-gold transition">00201001229632</a>
+      </span>
+      <span class="hidden h-3 w-px bg-white/20 lg:block"></span>
+      <span dir="ltr" class="bidi hidden text-white/55 lg:inline">Fax: 0020227074499</span>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="mailto:elsharifint@gmail.com" dir="ltr" class="bidi hover:text-gold transition">elsharifint@gmail.com</a>
+      <a href="http://www.elsharifint.com" dir="ltr" class="bidi hidden text-gold hover:text-gold-light transition lg:inline">www.elsharifint.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ NAVIGATION ══════════ -->
+<nav id="site-nav" class="sticky top-0 z-50 border-b border-gold/30 bg-navy-700/97 backdrop-blur">
+  <div class="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
+
+    <a href="#home" class="flex items-center gap-3">
+      <span class="grid h-10 w-10 shrink-0 place-items-center bg-gold text-navy-900">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v18M8 21h8M12 6 5.5 8M12 6l6.5 2M2.5 14l3-6 3 6a3 3 0 0 1-6 0Zm13-6 3-6 3 6a3 3 0 0 1-6 0Z"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-display text-[17px] font-bold text-white" data-ar="المؤسسة الدولية للتحكيم الدولي" data-en="I.F.I.A">المؤسسة الدولية للتحكيم الدولي</span>
+        <span class="block text-[10px] font-semibold tracking-wider2 text-gold uppercase" data-ar="والتدريب · I.F.I.A" data-en="& Training Foundation">والتدريب · I.F.I.A</span>
+      </span>
+    </a>
+
+    <ul class="hidden items-center gap-7 text-[13px] font-bold text-white/85 lg:flex">
+      <li><a class="u-link py-2 hover:text-gold transition" href="#home"     data-ar="الرئيسية"        data-en="Home">الرئيسية</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#about"    data-ar="من نحن"          data-en="About">من نحن</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#chairman" data-ar="كلمة الرئيس"     data-en="Chairman">كلمة الرئيس</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#courses"  data-ar="الدورات"         data-en="Courses">الدورات</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#members"  data-ar="الأعضاء"         data-en="Members">الأعضاء</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#consult"  data-ar="استشارات مجانية" data-en="Free Consultations">استشارات مجانية</a></li>
+      <li><a class="u-link py-2 hover:text-gold transition" href="#contact"  data-ar="اتصل بنا"        data-en="Contact">اتصل بنا</a></li>
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <button id="lang-toggle" class="border border-gold/60 px-3 py-1.5 text-xs font-bold tracking-wider text-gold transition hover:bg-gold hover:text-navy-900" aria-label="Switch language">
+        <span id="lang-label">EN</span>
+      </button>
+      <a href="tel:+966548817784" class="btn-gold hidden px-4 py-2 text-xs font-extrabold tracking-wider uppercase md:inline-block"
+         data-ar="اتصل الآن" data-en="Call Now">اتصل الآن</a>
+      <button id="menu-btn" class="grid h-10 w-10 place-items-center border border-white/25 text-white lg:hidden" aria-label="Menu" aria-expanded="false">
+        <svg id="i-open" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="i-close" viewBox="0 0 24 24" class="h-5 w-5 hidden" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-navy-900 px-4 py-4 lg:hidden">
+    <ul class="grid gap-1 text-sm font-bold text-white/90">
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#home"     data-ar="الرئيسية"        data-en="Home">الرئيسية</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#about"    data-ar="من نحن"          data-en="About">من نحن</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#chairman" data-ar="كلمة الرئيس"     data-en="Chairman">كلمة الرئيس</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#courses"  data-ar="الدورات"         data-en="Courses">الدورات</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#members"  data-ar="الأعضاء"         data-en="Members">الأعضاء</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#consult"  data-ar="استشارات مجانية" data-en="Free Consultations">استشارات مجانية</a></li>
+      <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#contact"  data-ar="اتصل بنا"        data-en="Contact">اتصل بنا</a></li>
+    </ul>
+    <div class="mt-4 flex gap-3 border-t border-white/10 pt-4">
+      <a href="tel:+966548817784" dir="ltr" class="bidi flex-1 bg-gold px-3 py-2.5 text-center text-xs font-extrabold text-navy-900">00966548817784</a>
+      <a href="tel:+201001229632" dir="ltr" class="bidi flex-1 border border-gold/60 px-3 py-2.5 text-center text-xs font-extrabold text-gold">00201001229632</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="home" class="hero-flat relative overflow-hidden">
+  <div class="pointer-events-none absolute bottom-0 start-0 hidden select-none font-display text-[13rem] leading-none opacity-100 lg:block hero-ghost" aria-hidden="true">ARBITRATION</div>
+
+  <div class="relative mx-auto max-w-[1240px] px-6 pt-20 pb-16 sm:pt-28 lg:pt-32">
+    <div class="max-w-3xl">
+      <p class="flex items-center gap-3 text-[11px] font-extrabold tracking-wider2 text-gold uppercase">
+        <span class="h-px w-10 bg-gold"></span>
+        <span data-ar="تأسست عام ٢٠١٤ · مصر · السعودية" data-en="Established 2014 · Egypt · Saudi Arabia">تأسست عام ٢٠١٤ · مصر · السعودية</span>
+      </p>
+
+      <h1 class="mt-6 font-display text-display font-bold text-white">
+        <span class="text-gold" data-ar="معاً نحو تحقيق أهدافنا" data-en="Together towards achieving our goals">معاً نحو تحقيق أهدافنا</span>
+      </h1>
+
+      <div class="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-white/70">
+        <span data-ar="التحكيم الدولي"         data-en="International Arbitration">التحكيم الدولي</span><span class="text-gold">◆</span>
+        <span data-ar="لتسوية المنازعات"        data-en="Dispute Settlement">لتسوية المنازعات</span><span class="text-gold">◆</span>
+        <span data-ar="منازعات الملكية الفكرية"  data-en="Intellectual Property Disputes">منازعات الملكية الفكرية</span><span class="text-gold">◆</span>
+        <span data-ar="مجال الاستثمار"          data-en="Investment">مجال الاستثمار</span><span class="text-gold">◆</span>
+        <span data-ar="صياغة العقود"            data-en="Contract Drafting">صياغة العقود</span>
+      </div>
+
+      <p class="mt-7 max-w-2xl font-display text-lead italic text-white/85"
+         data-ar="مؤسسة متطورة بدرجة عالية من الخبرة والكفاءة، تساهم في إزالة العقبات أمام النمو الاقتصادي عبر حل المنازعات التجارية بالتوفيق أو التحكيم."
+         data-en="A sophisticated foundation of high expertise, removing obstacles to economic growth by settling commercial disputes through conciliation or arbitration.">
+        مؤسسة متطورة بدرجة عالية من الخبرة والكفاءة، تساهم في إزالة العقبات أمام النمو الاقتصادي عبر حل المنازعات التجارية بالتوفيق أو التحكيم.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#courses" class="btn-gold px-8 py-3.5 text-sm font-extrabold tracking-wider uppercase"
+           data-ar="استكشف الدورات" data-en="Explore Courses">استكشف الدورات</a>
+        <a href="#consult" class="btn-ghost px-8 py-3.5 text-sm font-extrabold tracking-wider uppercase"
+           data-ar="استشارة مجانية" data-en="Free Consultation">استشارة مجانية</a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/15 pt-6">
+        <a href="tel:+966548817784" dir="ltr" class="bidi flex items-center gap-2 text-lg font-extrabold text-white hover:text-gold transition">
+          <span class="text-gold text-xs font-bold" data-ar="السعودية" data-en="KSA">السعودية</span> 00966548817784
+        </a>
+        <a href="tel:+201001229632" dir="ltr" class="bidi flex items-center gap-2 text-lg font-extrabold text-white hover:text-gold transition">
+          <span class="text-gold text-xs font-bold" data-ar="مصر" data-en="EG">مصر</span> 00201001229632
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TICKER (disciplines from the original site) ══════════ -->
+<div class="ticker-mask border-y border-navy-900 bg-gold py-2.5" dir="ltr">
+  <div class="ticker-track">
+    <span class="flex shrink-0 items-center gap-8 pe-8 font-display text-sm font-bold text-navy-900 whitespace-nowrap">
+      <span>التحكيم الدولي</span><span>◆</span><span>لتسوية المنازعات</span><span>◆</span><span>منازعات الملكية الفكرية</span><span>◆</span><span>مجال الاستثمار</span><span>◆</span><span>صياغة العقود</span><span>◆</span><span>استشارات قانونية مجانية</span><span>◆</span>
+    </span>
+    <span class="flex shrink-0 items-center gap-8 pe-8 font-display text-sm font-bold text-navy-900 whitespace-nowrap" aria-hidden="true">
+      <span>التحكيم الدولي</span><span>◆</span><span>لتسوية المنازعات</span><span>◆</span><span>منازعات الملكية الفكرية</span><span>◆</span><span>مجال الاستثمار</span><span>◆</span><span>صياغة العقود</span><span>◆</span><span>استشارات قانونية مجانية</span><span>◆</span>
+    </span>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT — section number 01 ══════════ -->
+<section id="about" class="border-b border-[var(--hairline)] bg-cloud">
+  <div class="mx-auto max-w-[1240px] px-6 py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-12">
+
+      <div class="reveal lg:col-span-4">
+        <p class="font-display text-6xl font-bold text-gold/40">01</p>
+        <h2 class="mt-2 font-display text-title font-bold text-navy"
+            data-ar="من نحن" data-en="About Us">من نحن</h2>
+        <div class="mt-4 h-px w-16 bg-gold"></div>
+        <p class="mt-6 text-sm leading-relaxed text-charcoal/70"
+           data-ar="أُنشئت المؤسسة الدولية للتحكيم الدولي والتدريب العلمي والإداري للعمل في مجال التحكيم وفض المنازعات بين الأطراف المحلية والدولية، هدفها نشر ثقافة التحكيم الدولي في الوطن العربي."
+           data-en="The Foundation was established to practice arbitration and settle disputes between local and international parties, with the aim of spreading international arbitration culture across the Arab world.">
+          أُنشئت المؤسسة الدولية للتحكيم الدولي والتدريب العلمي والإداري للعمل في مجال التحكيم وفض المنازعات بين الأطراف المحلية والدولية، هدفها نشر ثقافة التحكيم الدولي في الوطن العربي.
+        </p>
+        <div class="mt-6 border-s-2 border-gold ps-4 text-sm text-charcoal/80">
+          <p data-ar="بروتوكول تعاون مشترك مع الاتحاد العربي لحماية حقوق الملكية الفكرية."
+             data-en="A joint cooperation protocol with the Arab Union for the Protection of Intellectual Property Rights.">
+            بروتوكول تعاون مشترك مع الاتحاد العربي لحماية حقوق الملكية الفكرية.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal grid gap-px bg-[var(--hairline)] sm:grid-cols-2 lg:col-span-8">
+        <!-- 4 pillars from the original site -->
+        <div class="bg-white p-7">
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase">01</span>
+          <h3 class="mt-3 font-display text-xl font-bold text-navy" data-ar="دراسات عليا" data-en="Postgraduate Studies">دراسات عليا</h3>
+          <p class="mt-2 text-sm leading-relaxed text-charcoal/75"
+             data-ar="فرص للدراسات العليا في التحكيم الدولي، كدبلوم التحكيم الإلكتروني وصياغة العقود ودرجة الماجستير."
+             data-en="Postgraduate opportunities in international arbitration, including electronic arbitration and contract drafting diplomas and a master's degree.">
+            فرص للدراسات العليا في التحكيم الدولي، كدبلوم التحكيم الإلكتروني وصياغة العقود ودرجة الماجستير.
+          </p>
+        </div>
+        <div class="bg-white p-7">
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase">02</span>
+          <h3 class="mt-3 font-display text-xl font-bold text-navy" data-ar="برامج تدريبية" data-en="Training Programs">برامج تدريبية</h3>
+          <p class="mt-2 text-sm leading-relaxed text-charcoal/75"
+             data-ar="برامج تدريبية وورش عمل بالتعاون مع جهات وجامعات حكومية وغير حكومية لإعداد المحكمين الدوليين والكوادر القانونية."
+             data-en="Training programs and workshops with public and private institutions to prepare international arbitrators and legal cadres.">
+            برامج تدريبية وورش عمل بالتعاون مع جهات وجامعات حكومية وغير حكومية لإعداد المحكمين الدوليين والكوادر القانونية.
+          </p>
+        </div>
+        <div class="bg-white p-7">
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase">03</span>
+          <h3 class="mt-3 font-display text-xl font-bold text-navy" data-ar="حل المنازعات" data-en="Dispute Resolution">حل المنازعات</h3>
+          <p class="mt-2 text-sm leading-relaxed text-charcoal/75"
+             data-ar="المشورة بين أطراف المنازعات وتشجيع التحكيم والوسائل البديلة لحل المنازعات التي تثار بين الخصوم."
+             data-en="Advising disputing parties and encouraging arbitration and alternative methods to resolve disputes.">
+            المشورة بين أطراف المنازعات وتشجيع التحكيم والوسائل البديلة لحل المنازعات التي تثار بين الخصوم.
+          </p>
+        </div>
+        <div class="bg-white p-7">
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase">04</span>
+          <h3 class="mt-3 font-display text-xl font-bold text-navy" data-ar="تحكيم دولي" data-en="International Arbitration">تحكيم دولي</h3>
+          <p class="mt-2 text-sm leading-relaxed text-charcoal/75"
+             data-ar="إدارة التحكيمات المحلية والدولية وفقاً لقواعدها أو للقواعد الأخرى التي يتفق عليها الأطراف."
+             data-en="Administration of local and international arbitrations under its rules or other rules agreed upon by the parties.">
+            إدارة التحكيمات المحلية والدولية وفقاً لقواعدها أو للقواعد الأخرى التي يتفق عليها الأطراف.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- stats hairline row -->
+    <dl class="reveal mt-16 grid grid-cols-2 gap-px bg-[var(--hairline)] md:grid-cols-4">
+      <div class="bg-cloud px-6 py-7 text-center">
+        <dt class="font-display text-4xl font-bold text-navy">2014</dt>
+        <dd class="mt-1 text-xs font-bold tracking-wider2 text-charcoal/55 uppercase" data-ar="سنة التأسيس" data-en="Founded">سنة التأسيس</dd>
+      </div>
+      <div class="bg-cloud px-6 py-7 text-center">
+        <dt class="font-display text-4xl font-bold text-navy">+3,500</dt>
+        <dd class="mt-1 text-xs font-bold tracking-wider2 text-charcoal/55 uppercase" data-ar="متدرب ودكتور" data-en="Trainees">متدرب ودكتور</dd>
+      </div>
+      <div class="bg-cloud px-6 py-7 text-center">
+        <dt class="font-display text-4xl font-bold text-navy">3</dt>
+        <dd class="mt-1 text-xs font-bold tracking-wider2 text-charcoal/55 uppercase" data-ar="مستويات تدريبية" data-en="Training Levels">مستويات تدريبية</dd>
+      </div>
+      <div class="bg-cloud px-6 py-7 text-center">
+        <dt class="font-display text-4xl font-bold text-navy">+18</dt>
+        <dd class="mt-1 text-xs font-bold tracking-wider2 text-charcoal/55 uppercase" data-ar="دولة عربية" data-en="Arab Countries">دولة عربية</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════ CHAIRMAN'S WORD — section 02 (from original site) ══════════ -->
+<section id="chairman" class="relative bg-navy-900">
+  <div class="mx-auto max-w-[1240px] px-6 py-20 sm:py-24">
+    <div class="reveal grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="font-display text-6xl font-bold text-gold/40">02</p>
+        <h2 class="mt-2 font-display text-title font-bold text-white"
+            data-ar="كلمة رئيس مجلس الإدارة" data-en="Word of the Chairman">كلمة رئيس مجلس الإدارة</h2>
+        <div class="mt-4 h-px w-16 bg-gold"></div>
+        <div class="mt-8 flex items-center gap-4">
+          <span class="grid h-16 w-16 place-items-center bg-gold/15 font-display text-xl font-bold text-gold" data-ar="م ع" data-en="MA">م ع</span>
+          <span>
+            <span class="block font-bold text-white" data-ar="د. محمد العامري" data-en="Dr. Mohammed Al-Amri">د. محمد العامري</span>
+            <span class="block text-xs tracking-wider2 text-gold uppercase" data-ar="رئيس مجلس الإدارة" data-en="Chairman">رئيس مجلس الإدارة</span>
+          </span>
+        </div>
+      </div>
+      <blockquote class="border-s-2 border-gold ps-6 lg:col-span-8">
+        <p class="font-display text-lead italic leading-loose text-white/90"
+           data-ar="«بدأنا عام ٢٠١٤م ولازلنا في رؤيتنا لنشر الثقافة والوعي في مجال التحكيم الدولي، ونساهم في إزالة العقبات والعوائق حتى تتسارع عملية النمو الاقتصادي. سنسير إلى الأمام دائماً بكم ومعكم، لأنكم سر وجودنا من الأساس.»"
+           data-en="“We started in 2014 and remain committed to spreading awareness of international arbitration, removing obstacles so economic growth can accelerate. We will always move forward with you and among you — because you are the reason we exist.”">
+          «بدأنا عام ٢٠١٤م ولازلنا في رؤيتنا لنشر الثقافة والوعي في مجال التحكيم الدولي، ونساهم في إزالة العقبات والعوائق حتى تتسارع عملية النمو الاقتصادي. سنسير إلى الأمام دائماً بكم ومعكم، لأنكم سر وجودنا من الأساس.»
+        </p>
+        <p class="mt-6 text-xs tracking-wider2 text-white/45 uppercase" data-ar="المؤسسة الدولية للتحكيم الدولي والتدريب" data-en="International Foundation for International Arbitration & Training">المؤسسة الدولية للتحكيم الدولي والتدريب</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COURSES — section 03, with level tabs ══════════ -->
+<section id="courses" class="border-b border-[var(--hairline)] bg-bone">
+  <div class="mx-auto max-w-[1240px] px-6 py-20 sm:py-24">
+    <div class="reveal flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-display text-6xl font-bold text-gold/50">03</p>
+        <h2 class="mt-2 font-display text-title font-bold text-navy"
+            data-ar="الدورات والدبلومات" data-en="Courses & Diplomas">الدورات والدبلومات</h2>
+        <div class="mt-4 h-px w-16 bg-gold"></div>
+      </div>
+      <p class="max-w-md text-sm leading-relaxed text-charcoal/70"
+         data-ar="ثلاثة مستويات تدريبية — التمهيدية، التخصصية، المتعمقة — تُقدَّم برامج المؤسسة عبرها، اختر المستوى لعرض تفاصيله."
+         data-en="Three training levels — Foundation, Specialized, Advanced — through which the Foundation's programs are delivered. Pick a level to see its details.">
+        ثلاثة مستويات تدريبية — التمهيدية، التخصصية، المتعمقة — تُقدَّم برامج المؤسسة عبرها، اختر المستوى لعرض تفاصيله.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="reveal mt-10 flex flex-wrap" role="tablist" aria-label="Course levels">
+      <button class="tab-btn border border-navy-700 bg-navy-700 px-6 py-3 text-sm font-extrabold text-white transition" data-tab="foundation"  role="tab" aria-selected="true"
+              data-ar="التمهيدية" data-en="Foundation">التمهيدية</button>
+      <button class="tab-btn border border-navy-700/25 bg-transparent px-6 py-3 text-sm font-extrabold text-navy/70 transition hover:border-navy-700" data-tab="specialized" role="tab" aria-selected="false"
+              data-ar="التخصصية" data-en="Specialized">التخصصية</button>
+      <button class="tab-btn border border-navy-700/25 bg-transparent px-6 py-3 text-sm font-extrabold text-navy/70 transition hover:border-navy-700" data-tab="advanced"    role="tab" aria-selected="false"
+              data-ar="المتعمقة" data-en="Advanced">المتعمقة</button>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="reveal mt-px bg-white p-6 shadow-panel sm:p-8">
+      <div class="tab-panel" data-panel="foundation">
+        <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <h3 class="font-display text-2xl font-bold text-navy" data-ar="المستوى التمهيدي" data-en="Foundation Level">المستوى التمهيدي</h3>
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="٦ أسابيع" data-en="6 Weeks">٦ أسابيع</span>
+        </div>
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/75"
+           data-ar="تأسيس المفاهيم: طبيعة التحكيم وأنواعه ومبادئه، وصياغة اتفاق التحكيم، ومراجعة إجراءات التقديم الأولى — مثالي لمن يبدأ رحلته في التحكيم الدولي."
+           data-en="Building the fundamentals: the nature, types, and principles of arbitration, drafting the arbitration agreement, and first-instance filing procedures — ideal for beginners in international arbitration.">
+          تأسيس المفاهيم: طبيعة التحكيم وأنواعه ومبادئه، وصياغة اتفاق التحكيم، ومراجعة إجراءات التقديم الأولى — مثالي لمن يبدأ رحلته في التحكيم الدولي.
+        </p>
+      </div>
+      <div class="tab-panel hidden" data-panel="specialized">
+        <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <h3 class="font-display text-2xl font-bold text-navy" data-ar="المستوى التخصصي" data-en="Specialized Level">المستوى التخصصي</h3>
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="١٠ أسابيع" data-en="10 Weeks">١٠ أسابيع</span>
+        </div>
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/75"
+           data-ar="تعمق في قواعد التحكيم التجارية الدولية وإجراءات المحكمة التحكيمية، وكتابة المذكرات، ووضع بند التحكيم في عقود الاستثمار والملكية الفكرية."
+           data-en="In-depth study of international commercial arbitration rules, tribunal procedures, memorandum writing, and arbitration clauses in investment and IP contracts.">
+          تعمق في قواعد التحكيم التجارية الدولية وإجراءات المحكمة التحكيمية، وكتابة المذكرات، ووضع بند التحكيم في عقود الاستثمار والملكية الفكرية.
+        </p>
+      </div>
+      <div class="tab-panel hidden" data-panel="advanced">
+        <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <h3 class="font-display text-2xl font-bold text-navy" data-ar="المستوى المتعمق" data-en="Advanced Level">المستوى المتعمق</h3>
+          <span class="text-xs font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="١٤ أسبوعاً" data-en="14 Weeks">١٤ أسبوعاً</span>
+        </div>
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/75"
+           data-ar="محاكاة كاملة لجلسة تحكيم: مذكرات، استجواب شهود، مرافعات ختامية، وإصدار حكم تدريبي بإشراف خبراء مؤسسين."
+           data-en="A full mock arbitration hearing: memoranda, witness examination, closing arguments, and issuing an advisory award supervised by foundation experts.">
+          محاكاة كاملة لجلسة تحكيم: مذكرات، استجواب شهود، مرافعات ختامية، وإصدار حكم تدريبي بإشراف خبراء مؤسسين.
+        </p>
+      </div>
+    </div>
+
+    <!-- Course cards -->
+    <div class="mt-10 grid gap-px bg-[var(--hairline)] md:grid-cols-3">
+
+      <article class="reveal flex flex-col bg-white">
+        <div class="border-b-2 border-navy-700 px-6 pt-6 pb-4">
+          <span class="text-[10px] font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="برنامج قياسي" data-en="Flagship Program">برنامج قياسي</span>
+          <h3 class="mt-2 font-display text-xl font-bold text-navy" data-ar="ممارس التحكيم الدولي" data-en="International Arbitration Practitioner">ممارس التحكيم الدولي</h3>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <p class="text-sm leading-relaxed text-charcoal/80"
+             data-ar="برنامج متكامل يغطي قواعد التحكيم التجارية الدولية، ومكونات المحكمة التحكيمية، والصياغة الإجرائية لطلبات التحكيم."
+             data-en="A comprehensive program covering international commercial arbitration rules, tribunal composition, and procedural drafting of arbitration claims.">
+            برنامج متكامل يغطي قواعد التحكيم التجارية الدولية، ومكونات المحكمة التحكيمية، والصياغة الإجرائية لطلبات التحكيم.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-xs text-charcoal/70">
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="أونلاين وحضوري" data-en="Online & in-person">أونلاين وحضوري</span></li>
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="شهادة إتمام معتمدة" data-en="Accredited certificate">شهادة إتمام معتمدة</span></li>
+          </ul>
+          <div class="mt-auto flex items-end justify-between border-t border-[var(--hairline)] pt-5">
+            <div>
+              <span class="block text-[10px] tracking-wider2 text-charcoal/50 uppercase" data-ar="السعر" data-en="Price">السعر</span>
+              <span class="font-display text-3xl font-bold text-navy">$150</span>
+            </div>
+            <button class="enroll-btn btn-gold px-5 py-2.5 text-xs font-extrabold tracking-wider uppercase"
+                    data-course-ar="ممارس التحكيم الدولي" data-course-en="International Arbitration Practitioner"
+                    data-ar="سجّل الآن" data-en="Enroll Now">سجّل الآن</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="reveal flex flex-col bg-white">
+        <div class="border-b-2 border-navy-700 px-6 pt-6 pb-4">
+          <span class="text-[10px] font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="دبلوم" data-en="Diploma">دبلوم</span>
+          <h3 class="mt-2 font-display text-xl font-bold text-navy" data-ar="حقوق الإنسان والعلاقات الدبلوماسية" data-en="Human Rights & Diplomatic Relations">حقوق الإنسان والعلاقات الدبلوماسية</h3>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <p class="text-sm leading-relaxed text-charcoal/80"
+             data-ar="دبلوم يربط الإطار القانوني لحقوق الإنسان بالدبلوماسية المعاصرة، مع دراسات حالة من ممارسات المجتمع الدولي."
+             data-en="A diploma linking the legal framework of human rights with modern diplomacy, through case studies from international practice.">
+            دبلوم يربط الإطار القانوني لحقوق الإنسان بالدبلوماسية المعاصرة، مع دراسات حالة من ممارسات المجتمع الدولي.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-xs text-charcoal/70">
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="محاكاة مباحثات دبلوماسية" data-en="Diplomatic simulations">محاكاة مباحثات دبلوماسية</span></li>
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="شهادة إتمام معتمدة" data-en="Accredited certificate">شهادة إتمام معتمدة</span></li>
+          </ul>
+          <div class="mt-auto flex items-end justify-between border-t border-[var(--hairline)] pt-5">
+            <div>
+              <span class="block text-[10px] tracking-wider2 text-charcoal/50 uppercase" data-ar="السعر" data-en="Price">السعر</span>
+              <span class="font-display text-3xl font-bold text-navy">$150</span>
+            </div>
+            <button class="enroll-btn btn-gold px-5 py-2.5 text-xs font-extrabold tracking-wider uppercase"
+                    data-course-ar="حقوق الإنسان والعلاقات الدبلوماسية" data-course-en="Human Rights & Diplomatic Relations"
+                    data-ar="سجّل الآن" data-en="Enroll Now">سجّل الآن</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="reveal flex flex-col bg-white">
+        <div class="border-b-2 border-navy-700 px-6 pt-6 pb-4">
+          <span class="text-[10px] font-extrabold tracking-wider2 text-gold-dark uppercase" data-ar="دبلوم" data-en="Diploma">دبلوم</span>
+          <h3 class="mt-2 font-display text-xl font-bold text-navy" data-ar="الملكية الفكرية وتسوية النزاعات" data-en="Intellectual Property & Dispute Resolution">الملكية الفكرية وتسوية النزاعات</h3>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <p class="text-sm leading-relaxed text-charcoal/80"
+             data-ar="تدريب متخصص في حماية العلامات التجارية وبراءات الاختراع والحقوق الرقمية، وآليات التسوية القضائية وبدائلها."
+             data-en="Specialized training on trademark and patent protection, digital rights, and judicial vs. alternative dispute mechanisms.">
+            تدريب متخصص في حماية العلامات التجارية وبراءات الاختراع والحقوق الرقمية، وآليات التسوية القضائية وبدائلها.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-xs text-charcoal/70">
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="ورشة صياغة مذكرات الدفاع" data-en="Defense memo workshop">ورشة صياغة مذكرات الدفاع</span></li>
+            <li class="flex gap-2"><span class="text-gold-dark">—</span><span data-ar="شهادة إتمام معتمدة" data-en="Accredited certificate">شهادة إتمام معتمدة</span></li>
+          </ul>
+          <div class="mt-auto flex items-end justify-between border-t border-[var(--hairline)] pt-5">
+            <div>
+              <span class="block text-[10px] tracking-wider2 text-charcoal/50 uppercase" data-ar="السعر" data-en="Price">السعر</span>
+              <span class="font-display text-3xl font-bold text-navy">$150</span>
+            </div>
+            <button class="enroll-btn btn-gold px-5 py-2.5 text-xs font-extrabold tracking-wider uppercase"
+                    data-course-ar="الملكية الفكرية وتسوية النزاعات" data-course-en="Intellectual Property & Dispute Resolution"
+                    data-ar="سجّل الآن" data-en="Enroll Now">سجّل الآن</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="reveal mt-6 text-center text-xs text-charcoal/50"
+       data-ar="* الأسعار والأسماء في هذه النسخة التجريبية تجريبية لأغراض العرض فقط."
+       data-en="* Prices and names in this demo are mock-ups for presentation purposes only.">
+      * الأسعار والأسماء في هذه النسخة التجريبية تجريبية لأغراض العرض فقط.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ MEMBERS — section 04 ══════════ -->
+<section id="members" class="bg-cloud">
+  <div class="mx-auto max-w-[1240px] px-6 py-20 sm:py-24">
+    <div class="reveal">
+      <p class="font-display text-6xl font-bold text-gold/40">04</p>
+      <h2 class="mt-2 font-display text-title font-bold text-navy"
+          data-ar="أعضاء المؤسسة · مجلس الأمناء" data-en="Members · Board of Trustees">أعضاء المؤسسة · مجلس الأمناء</h2>
+      <div class="mt-4 h-px w-16 bg-gold"></div>
+    </div>
+
+    <div class="reveal mt-10 grid gap-px bg-[var(--hairline)] sm:grid-cols-2 lg:grid-cols-4">
+      <div class="group bg-white p-7 transition hover:bg-navy-900">
+        <span class="grid h-14 w-14 place-items-center bg-navy-700 font-display text-lg font-bold text-gold transition group-hover:bg-gold group-hover:text-navy-900" data-ar="م ع" data-en="MA">م ع</span>
+        <h3 class="mt-4 font-bold text-navy transition group-hover:text-white" data-ar="د. محمد العامري" data-en="Dr. Mohammed Al-Amri">د. محمد العامري</h3>
+        <p class="mt-1 text-[11px] font-extrabold tracking-wider2 text-gold-dark uppercase transition group-hover:text-gold" data-ar="رئيس مجلس الإدارة" data-en="Chairman">رئيس مجلس الإدارة</p>
+        <p class="mt-3 text-xs leading-relaxed text-charcoal/60 transition group-hover:text-white/60" data-ar="محامٍ معتمد، خبير تحكيم دولي" data-en="Accredited lawyer, international arbitration expert">محامٍ معتمد، خبير تحكيم دولي</p>
+      </div>
+      <div class="group bg-white p-7 transition hover:bg-navy-900">
+        <span class="grid h-14 w-14 place-items-center bg-navy-700 font-display text-lg font-bold text-gold transition group-hover:bg-gold group-hover:text-navy-900" data-ar="س ز" data-en="SZ">س ز</span>
+        <h3 class="mt-4 font-bold text-navy transition group-hover:text-white" data-ar="د. سارة الزهراني" data-en="Dr. Sarah Al-Zahrani">د. سارة الزهراني</h3>
+        <p class="mt-1 text-[11px] font-extrabold tracking-wider2 text-gold-dark uppercase transition group-hover:text-gold" data-ar="عميدة التدريب" data-en="Dean of Training">عميدة التدريب</p>
+        <p class="mt-3 text-xs leading-relaxed text-charcoal/60 transition group-hover:text-white/60" data-ar="أستاذة القانون الدولي العام" data-en="Professor of Public International Law">أستاذة القانون الدولي العام</p>
+      </div>
+      <div class="group bg-white p-7 transition hover:bg-navy-900">
+        <span class="grid h-14 w-14 place-items-center bg-navy-700 font-display text-lg font-bold text-gold transition group-hover:bg-gold group-hover:text-navy-900" data-ar="خ إ" data-en="KI">خ إ</span>
+        <h3 class="mt-4 font-bold text-navy transition group-hover:text-white" data-ar="د. خالد إبراهيم" data-en="Dr. Khalid Ibrahim">د. خالد إبراهيم</h3>
+        <p class="mt-1 text-[11px] font-extrabold tracking-wider2 text-gold-dark uppercase transition group-hover:text-gold" data-ar="مدير البرامج الأكاديمية" data-en="Academic Programs Director">مدير البرامج الأكاديمية</p>
+        <p class="mt-3 text-xs leading-relaxed text-charcoal/60 transition group-hover:text-white/60" data-ar="خبير الملكية الفكرية" data-en="Intellectual property specialist">خبير الملكية الفكرية</p>
+      </div>
+      <div class="group bg-white p-7 transition hover:bg-navy-900">
+        <span class="grid h-14 w-14 place-items-center bg-navy-700 font-display text-lg font-bold text-gold transition group-hover:bg-gold group-hover:text-navy-900" data-ar="ن ح" data-en="NH">ن ح</span>
+        <h3 class="mt-4 font-bold text-navy transition group-hover:text-white" data-ar="أ. نورة الحسن" data-en="Ms. Noura Al-Hassan">أ. نورة الحسن</h3>
+        <p class="mt-1 text-[11px] font-extrabold tracking-wider2 text-gold-dark uppercase transition group-hover:text-gold" data-ar="مدربة أولى" data-en="Lead Trainer">مدربة أولى</p>
+        <p class="mt-3 text-xs leading-relaxed text-charcoal/60 transition group-hover:text-white/60" data-ar="مفوضة معتمدة لتسوية النزاعات" data-en="Accredited dispute resolution commissioner">مفوضة معتمدة لتسوية النزاعات</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FREE CONSULTATIONS — section 05 ══════════ -->
+<section id="consult" class="border-y border-navy-900/10 bg-bone">
+  <div class="mx-auto max-w-[1240px] px-6 py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="reveal lg:col-span-5">
+        <p class="font-display text-6xl font-bold text-gold/50">05</p>
+        <h2 class="mt-2 font-display text-title font-bold text-navy"
+            data-ar="استشارات قانونية مجانية" data-en="Free Legal Consultations">استشارات قانونية مجانية</h2>
+        <div class="mt-4 h-px w-16 bg-gold"></div>
+        <p class="mt-6 text-sm leading-relaxed text-charcoal/75"
+           data-ar="احجز استشارة مجانية مع أحد مدربينا لمناقشة مسارك التدريبي المناسب، أو نزاع قانوني تحتاج توجيهاً أولياً."
+           data-en="Book a free consultation with one of our trainers to discuss the right training path for you, or a legal matter needing initial guidance.">
+          احجز استشارة مجانية مع أحد مدربينا لمناقشة مسارك التدريبي المناسب، أو نزاع قانوني تحتاج توجيهاً أولياً.
+        </p>
+        <ul class="mt-8 divide-y divide-[var(--hairline)] border-y border-[var(--hairline)] text-sm">
+          <li class="flex items-center justify-between py-3.5"><span class="text-charcoal/75" data-ar="رد خلال 24 ساعة عمل" data-en="Reply within 24 business hours">رد خلال 24 ساعة عمل</span><span class="font-display font-bold text-gold-dark">01</span></li>
+          <li class="flex items-center justify-between py-3.5"><span class="text-charcoal/75" data-ar="عبر الهاتف أو البريد الإلكتروني" data-en="By phone or email">عبر الهاتف أو البريد الإلكتروني</span><span class="font-display font-bold text-gold-dark">02</span></li>
+          <li class="flex items-center justify-between py-3.5"><span class="text-charcoal/75" data-ar="بدون أي التزام مالي" data-en="No financial obligation">بدون أي التزام مالي</span><span class="font-display font-bold text-gold-dark">03</span></li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="tel:+966548817784" dir="ltr" class="bidi bg-navy-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-gold hover:text-navy-900">00966548817784</a>
+          <a href="tel:+201001229632" dir="ltr" class="bidi bg-navy-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-gold hover:text-navy-900">00201001229632</a>
+        </div>
+      </div>
+
+      <form id="consult-form" class="reveal bg-white p-7 shadow-panel lg:col-span-7 sm:p-9" novalidate>
+        <h3 class="font-display text-2xl font-bold text-navy" data-ar="طلب استشارة" data-en="Consultation Request">طلب استشارة</h3>
+        <div class="mt-6 grid gap-5 sm:grid-cols-2">
+          <div class="sm:col-span-1">
+            <label class="mb-1.5 block text-[11px] font-extrabold tracking-wider2 text-charcoal/60 uppercase" for="f-name" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+            <input id="f-name" name="name" type="text" required class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm transition focus:border-gold"
+                   data-ar-ph="مثال: أحمد محمد" data-en-ph="e.g. Ahmed Mohammed" placeholder="مثال: أحمد محمد">
+          </div>
+          <div class="sm:col-span-1">
+            <label class="mb-1.5 block text-[11px] font-extrabold tracking-wider2 text-charcoal/60 uppercase" for="f-phone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+            <input id="f-phone" name="phone" type="tel" dir="ltr" required class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm transition focus:border-gold"
+                   data-ar-ph="+966 5X XXX XXXX" data-en-ph="+966 5X XXX XXXX" placeholder="+966 5X XXX XXXX">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="mb-1.5 block text-[11px] font-extrabold tracking-wider2 text-charcoal/60 uppercase" for="f-topic" data-ar="موضوع الاستشارة" data-en="Consultation Topic">موضوع الاستشارة</label>
+            <select id="f-topic" name="topic" class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm transition focus:border-gold">
+              <option data-ar="التحكيم التجاري الدولي" data-en="International commercial arbitration">التحكيم التجاري الدولي</option>
+              <option data-ar="التدريب والدبلومات" data-en="Training & diplomas">التدريب والدبلومات</option>
+              <option data-ar="الملكية الفكرية" data-en="Intellectual property">الملكية الفكرية</option>
+              <option data-ar="صياغة العقود" data-en="Contract drafting">صياغة العقود</option>
+              <option data-ar="أخرى" data-en="Other">أخرى</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="mb-1.5 block text-[11px] font-extrabold tracking-wider2 text-charcoal/60 uppercase" for="f-msg" data-ar="رسالتك" data-en="Your Message">رسالتك</label>
+            <textarea id="f-msg" name="message" rows="4" class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm transition focus:border-gold"
+                      data-ar-ph="اكتب استفسارك باختصار…" data-en-ph="Write your inquiry briefly…" placeholder="اكتب استفسارك باختصار…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold mt-6 w-full px-6 py-3.5 text-sm font-extrabold tracking-wider uppercase"
+                data-ar="إرسال الطلب" data-en="Send Request">إرسال الطلب</button>
+        <p class="mt-3 text-center text-[11px] text-charcoal/50" data-ar="بالإرسال أنت توافق على سياسة الخصوصية (نموذج تجريبي)." data-en="By sending you agree to the privacy policy (demo form).">بالإرسال أنت توافق على سياسة الخصوصية (نموذج تجريبي).</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER / CONTACT — real data from the original site ══════════ -->
+<footer id="contact" class="bg-navy-900 pt-16 pb-8 text-white">
+  <div class="mx-auto max-w-[1240px] px-6">
+    <div class="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-3">
+
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="grid h-11 w-11 shrink-0 place-items-center bg-gold text-navy-900">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18M8 21h8M12 6 5.5 8M12 6l6.5 2M2.5 14l3-6 3 6a3 3 0 0 1-6 0Zm13-6 3-6 3 6a3 3 0 0 1-6 0Z"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-[17px] font-bold text-gold" data-ar="المؤسسة الدولية للتحكيم الدولي والتدريب" data-en="I.F.I.A — International Arbitration & Training">المؤسسة الدولية للتحكيم الدولي والتدريب</span>
+            <span class="block text-[11px] text-white/50">International Foundation for International Arbitration &amp; Training</span>
+          </span>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-white/60"
+           data-ar="نشر ثقافة التحكيم الدولي، وفض المنازعات التجارية بالتوفيق والتحكيم، وتخفيف العبء على القضاء."
+           data-en="Spreading international arbitration culture, settling commercial disputes through conciliation and arbitration, and easing the burden on the courts.">
+          نشر ثقافة التحكيم الدولي، وفض المنازعات التجارية بالتوفيق والتحكيم، وتخفيف العبء على القضاء.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-2 text-[11px] font-bold">
+          <span class="border border-gold/40 px-2.5 py-1 text-gold">www.elsharifint.com</span>
+          <span class="border border-white/20 px-2.5 py-1 text-white/60" data-ar="تأسست ٢٠١٤" data-en="Est. 2014">تأسست ٢٠١٤</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-bold tracking-wider2 text-gold text-xs uppercase" data-ar="أرقام التواصل" data-en="Contact Numbers">أرقام التواصل</h3>
+        <ul class="mt-4 space-y-4 text-sm text-white/75">
+          <li>
+            <span class="block text-[11px] font-bold text-white/45" data-ar="السعودية" data-en="Saudi Arabia">السعودية</span>
+            <a href="tel:+966548817784" dir="ltr" class="bidi text-lg font-extrabold text-white hover:text-gold transition">00966548817784</a>
+          </li>
+          <li>
+            <span class="block text-[11px] font-bold text-white/45" data-ar="مصر" data-en="Egypt">مصر</span>
+            <a href="tel:+201001229632" dir="ltr" class="bidi text-lg font-extrabold text-white hover:text-gold transition">00201001229632</a>
+          </li>
+          <li dir="ltr" class="bidi text-white/55">Fax: 0020227074499</li>
+        </ul>
+        <ul class="mt-5 space-y-2 text-sm">
+          <li><a href="mailto:elsharifint@gmail.com" dir="ltr" class="bidi text-white/70 hover:text-gold transition">elsharifint@gmail.com</a></li>
+          <li><a href="mailto:info@elsharifint.com"  dir="ltr" class="bidi text-white/70 hover:text-gold transition">info@elsharifint.com</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold tracking-wider2 text-gold text-xs uppercase" data-ar="العناوين" data-en="Addresses">العناوين</h3>
+        <ul class="mt-4 space-y-5 text-sm text-white/70">
+          <li class="flex gap-3">
+            <span class="mt-1 h-1.5 w-1.5 shrink-0 bg-gold"></span>
+            <span>
+              <span class="block text-[11px] font-bold text-white/45" data-ar="القاهرة — مصر" data-en="Cairo — Egypt">القاهرة — مصر</span>
+              <span data-ar="١٦ شارع يوسف، حلوان، القاهرة" data-en="16 Youssef St., Helwan, Cairo, Egypt">١٦ شارع يوسف، حلوان، القاهرة</span>
+            </span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-1.5 w-1.5 shrink-0 bg-gold"></span>
+            <span>
+              <span class="block text-[11px] font-bold text-white/45" data-ar="الرياض — السعودية" data-en="Riyadh — Saudi Arabia">الرياض — السعودية</span>
+              <span data-ar="حي العريجاء الوسطي، الرياض" data-en="Al-Areja Al-Wasati, Riyadh, Saudi Arabia">حي العريجاء الوسطي، الرياض</span>
+            </span>
+          </li>
+        </ul>
+        <h3 class="mt-7 font-bold tracking-wider2 text-gold text-xs uppercase" data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h3>
+        <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-white/70">
+          <li><a href="#about"    class="hover:text-gold transition" data-ar="من نحن"          data-en="About">من نحن</a></li>
+          <li><a href="#courses"  class="hover:text-gold transition" data-ar="الدورات"         data-en="Courses">الدورات</a></li>
+          <li><a href="#members"  class="hover:text-gold transition" data-ar="الأعضاء"         data-en="Members">الأعضاء</a></li>
+          <li><a href="#consult"  class="hover:text-gold transition" data-ar="استشارات مجانية" data-en="Consultations">استشارات مجانية</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Legal disclaimer -->
+    <div class="mt-8 border-s-2 border-gold bg-white/5 px-5 py-4">
+      <p class="text-xs leading-relaxed text-white/65"
+         data-ar="إخلاء مسؤولية قانوني: يُقدّم هذا الموقع تدريبات وشهادات مهنية وتعليمية فقط، ولا يمثّل هيئة قضائية أو حكومية رسمية بأي شكل من الأشكال. الشهادات الممنوحة تُثبت إتمام البرنامج التدريبي ولا تمنح صلاحيات قضائية."
+         data-en="Legal disclaimer: This website provides professional training and educational certifications only. It does not represent an official judicial or governmental body in any way. Certificates issued attest to program completion and confer no judicial authority.">
+        إخلاء مسؤولية قانوني: يُقدّم هذا الموقع تدريبات وشهادات مهنية وتعليمية فقط، ولا يمثّل هيئة قضائية أو حكومية رسمية بأي شكل من الأشكال. الشهادات الممنوحة تُثبت إتمام البرنامج التدريبي ولا تمنح صلاحيات قضائية.
+      </p>
+    </div>
+
+    <div class="mt-6 flex flex-col items-center justify-between gap-3 text-xs text-white/45 sm:flex-row">
+      <p data-ar="© 2026 المؤسسة الدولية للتحكيم الدولي والتدريب. جميع الحقوق محفوظة." data-en="© 2026 I.F.I.A. All rights reserved.">© 2026 المؤسسة الدولية للتحكيم الدولي والتدريب. جميع الحقوق محفوظة.</p>
+      <p class="text-gold/70" data-ar="نموذج أولي للعرض — الأسعار والأسماء تجريبية" data-en="Demo preview — prices and names are mock-ups">نموذج أولي للعرض — الأسعار والأسماء تجريبية</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ ENROLL MODAL ══════════ -->
+<dialog id="enroll-modal" class="w-[92vw] max-w-md bg-white p-0 shadow-panel">
+  <div class="flex items-center justify-between bg-navy-900 px-6 py-4">
+    <h3 class="font-display text-xl font-bold text-white" data-ar="تسجيل في الدورة" data-en="Course Enrollment">تسجيل في الدورة</h3>
+    <button id="modal-x" class="grid h-8 w-8 place-items-center border border-white/25 text-white/70 hover:border-gold hover:text-gold" aria-label="Close">✕</button>
+  </div>
+  <form method="dialog" class="p-6">
+    <p class="text-sm text-charcoal/75">
+      <span data-ar="الدورة:" data-en="Course:">الدورة:</span>
+      <strong id="modal-course" class="text-navy"></strong>
+    </p>
+    <div class="mt-4 border border-[var(--hairline)] bg-cloud px-4 py-4 text-center">
+      <span class="block text-[10px] tracking-wider2 text-charcoal/55 uppercase" data-ar="سعر البرنامج (تجريبي)" data-en="Program Price (Mock)">سعر البرنامج (تجريبي)</span>
+      <span class="font-display text-3xl font-bold text-navy">$150 USD</span>
+    </div>
+    <div class="mt-5 space-y-3">
+      <input type="text" required class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+             data-ar-ph="الاسم الكامل" data-en-ph="Full name" placeholder="الاسم الكامل">
+      <input type="email" required dir="ltr" class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+             data-ar-ph="البريد الإلكتروني" data-en-ph="Email address" placeholder="البريد الإلكتروني">
+    </div>
+    <div class="mt-6 flex gap-3">
+      <button value="confirm" class="btn-gold flex-1 px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="تأكيد التسجيل" data-en="Confirm Enrollment">تأكيد التسجيل</button>
+      <button value="cancel" class="border border-navy-700/25 px-5 py-3 text-xs font-extrabold tracking-wider uppercase text-charcoal hover:bg-cloud" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ══════════ TOAST ══════════ -->
+<div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 translate-y-4 bg-navy-900 px-6 py-3.5 text-sm font-bold text-white opacity-0 shadow-panel transition-all duration-300"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Language ── */
+  var langLabel = document.getElementById('lang-label');
+
+  function currentLang() { return document.documentElement.getAttribute('lang'); }
+
+  function applyStrings(lang) {
+    document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('[data-ar-ph][data-en-ph]').forEach(function (el) {
+      el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-ph'));
+    });
+  }
+
+  function switchLang(lang) {
+    var html = document.documentElement;
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    applyStrings(lang);
+    langLabel.textContent = lang === 'ar' ? 'EN' : 'ع';
+    try { localStorage.setItem('ifiia-lang', lang); } catch (e) {}
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    switchLang(currentLang() === 'ar' ? 'en' : 'ar');
+  });
+
+  try { if (localStorage.getItem('ifiia-lang') === 'en') switchLang('en'); } catch (e) {}
+
+  /* ── Mobile menu ── */
+  var menuBtn = document.getElementById('menu-btn');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.getElementById('i-open').classList.remove('hidden');
+    document.getElementById('i-close').classList.add('hidden');
+  }
+
+  menuBtn.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    document.getElementById('i-open').classList.toggle('hidden', open);
+    document.getElementById('i-close').classList.toggle('hidden', !open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+  /* ── Active nav link ── */
+  var navAnchors = document.querySelectorAll('.u-link');
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section[id], footer[id]').forEach(function (s) { obs.observe(s); });
+
+  /* ── Reveal on scroll ── */
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('on'); revealObs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+  /* ── Course level tabs ── */
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+
+  function activateTab(key) {
+    tabBtns.forEach(function (b) {
+      var on = b.getAttribute('data-tab') === key;
+      b.setAttribute('aria-selected', String(on));
+      b.classList.toggle('bg-navy-700', on);
+      b.classList.toggle('text-white', on);
+      b.classList.toggle('border-navy-700', on);
+      b.classList.toggle('bg-transparent', !on);
+      b.classList.toggle('text-navy/70', !on);
+      b.classList.toggle('border-navy-700/25', !on);
+    });
+    panels.forEach(function (p) {
+      p.classList.toggle('hidden', p.getAttribute('data-panel') !== key);
+    });
+  }
+
+  tabBtns.forEach(function (b) {
+    b.addEventListener('click', function () { activateTab(b.getAttribute('data-tab')); });
+  });
+
+  /* ── Enroll modal ── */
+  var modal = document.getElementById('enroll-modal');
+  var modalCourse = document.getElementById('modal-course');
+
+  document.querySelectorAll('.enroll-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      modalCourse.textContent = btn.getAttribute('data-course-' + currentLang());
+      modal.showModal();
+    });
+  });
+  document.getElementById('modal-x').addEventListener('click', function () { modal.close('cancel'); });
+  modal.addEventListener('close', function () {
+    if (modal.returnValue === 'confirm') {
+      showToast(currentLang() === 'ar'
+        ? 'تم استلام طلب التسجيل — سنتواصل معك قريباً'
+        : 'Enrollment request received — we will contact you shortly');
+    }
+  });
+
+  /* ── Consultation form ── */
+  document.getElementById('consult-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { this.reportValidity(); return; }
+    this.reset();
+    showToast(currentLang() === 'ar'
+      ? 'تم إرسال طلب الاستشارة بنجاح'
+      : 'Consultation request sent successfully');
+  });
+
+  /* ── Toast ── */
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.remove('opacity-0', 'translate-y-4');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.add('opacity-0', 'translate-y-4');
+    }, 3500);
+  }
+})();
+</script>
+</body>
+</html>
