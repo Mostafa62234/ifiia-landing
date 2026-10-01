@@ -43,7 +43,7 @@ tailwind.config = {
 </script>
 <style>
   :root { --hairline: rgba(26,54,93,.16); }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   html[lang="en"] body { font-family: 'Inter', system-ui, sans-serif; }
   html[lang="en"] .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
@@ -110,30 +110,30 @@ tailwind.config = {
 <body class="bg-cloud text-charcoal font-body antialiased">
 
 <!-- ══════════ UTILITY BAR (actual contact data from the original site) ══════════ -->
-<div class="hidden border-b border-gold/25 bg-navy-900 text-[13px] text-white/75 md:block">
-  <div class="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-6 py-2">
-    <div class="flex items-center gap-6">
+<div class="border-b border-gold/25 bg-navy-900 text-[12px] font-medium text-white/90 sm:text-[13px]">
+  <div class="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-2 sm:px-6">
+    <div class="flex items-center gap-3 sm:gap-6">
       <span class="flex items-center gap-2">
         <span class="text-gold text-xs font-bold" data-ar="السعودية" data-en="KSA">السعودية</span>
-        <a href="tel:+966548817784" dir="ltr" class="bidi font-semibold text-white hover:text-gold transition">00966548817784</a>
+        <a href="tel:+966548817784" dir="ltr" class="bidi font-bold text-white hover:text-gold transition">00966548817784</a>
       </span>
-      <span class="h-3 w-px bg-white/20"></span>
-      <span class="flex items-center gap-2">
+      <span class="hidden h-3 w-px bg-white/25 sm:block"></span>
+      <span class="hidden items-center gap-2 sm:flex">
         <span class="text-gold text-xs font-bold" data-ar="مصر" data-en="EGYPT">مصر</span>
-        <a href="tel:+201001229632" dir="ltr" class="bidi font-semibold text-white hover:text-gold transition">00201001229632</a>
+        <a href="tel:+201001229632" dir="ltr" class="bidi font-bold text-white hover:text-gold transition">00201001229632</a>
       </span>
-      <span class="hidden h-3 w-px bg-white/20 lg:block"></span>
-      <span dir="ltr" class="bidi hidden text-white/55 lg:inline">Fax: 0020227074499</span>
+      <span class="hidden h-3 w-px bg-white/25 lg:block"></span>
+      <span dir="ltr" class="bidi hidden text-white/70 lg:inline">Fax: 0020227074499</span>
     </div>
-    <div class="flex items-center gap-5">
-      <a href="mailto:elsharifint@gmail.com" dir="ltr" class="bidi hover:text-gold transition">elsharifint@gmail.com</a>
-      <a href="http://www.elsharifint.com" dir="ltr" class="bidi hidden text-gold hover:text-gold-light transition lg:inline">www.elsharifint.com</a>
+    <div class="flex items-center gap-4">
+      <a href="mailto:elsharifint@gmail.com" dir="ltr" class="bidi text-gold-light hover:text-gold transition">elsharifint@gmail.com</a>
+      <a href="http://www.elsharifint.com" dir="ltr" class="bidi hidden text-gold hover:text-gold-light transition md:inline">www.elsharifint.com</a>
     </div>
   </div>
 </div>
 
 <!-- ══════════ NAVIGATION ══════════ -->
-<nav id="site-nav" class="sticky top-0 z-50 border-b border-gold/30 bg-navy-700/97 backdrop-blur">
+<nav id="site-nav" class="sticky top-0 z-50 border-b-2 border-gold/40 bg-navy-700 shadow-lg shadow-navy-900/30">
   <div class="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
 
     <a href="#home" class="flex items-center gap-3">
@@ -148,7 +148,7 @@ tailwind.config = {
       </span>
     </a>
 
-    <ul class="hidden items-center gap-7 text-[13px] font-bold text-white/85 lg:flex">
+    <ul class="hidden items-center gap-7 text-[13px] font-bold text-white lg:flex">
       <li><a class="u-link py-2 hover:text-gold transition" href="#home"     data-ar="الرئيسية"        data-en="Home">الرئيسية</a></li>
       <li><a class="u-link py-2 hover:text-gold transition" href="#about"    data-ar="من نحن"          data-en="About">من نحن</a></li>
       <li><a class="u-link py-2 hover:text-gold transition" href="#chairman" data-ar="كلمة الرئيس"     data-en="Chairman">كلمة الرئيس</a></li>
@@ -746,6 +746,12 @@ tailwind.config = {
 <script>
 (function () {
   'use strict';
+
+  /* ── Always start at the top on a fresh load (kills scroll-restoration jumps) ── */
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('load', function () {
+    if (!location.hash) { window.scrollTo(0, 0); }
+  });
 
   /* ── Language ── */
   var langLabel = document.getElementById('lang-label');
