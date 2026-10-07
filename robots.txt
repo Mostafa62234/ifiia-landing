@@ -14,4 +14,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://www.elsharifint.com/sitemap.xml
+Sitemap: https://ifiia-landing-new.pages.dev/sitemap.xml
