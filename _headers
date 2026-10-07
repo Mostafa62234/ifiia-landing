@@ -15,6 +15,15 @@
 /styles.css
   Cache-Control: public, max-age=600, must-revalidate
 
+# Rewritten on each launch iteration - keep the window short.
+/auth.js
+  Cache-Control: public, max-age=600, must-revalidate
+
+# Third-party vendor bundle, replaced only on deliberate upgrades.
+/vendor/*
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=86400, must-revalidate
+
 /og-image.png
   Cache-Control: public, max-age=86400, must-revalidate
 

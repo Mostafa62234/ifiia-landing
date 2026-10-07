@@ -284,6 +284,13 @@
     </ul>
 
     <div class="flex items-center gap-2">
+      <button type="button" data-auth-open class="hidden items-center gap-1.5 border border-gold/60 px-3 py-1.5 text-xs font-bold tracking-wider text-gold transition hover:bg-gold hover:text-navy-900 sm:inline-flex" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="inline-block max-w-[92px] truncate align-middle">
+          <span data-auth-out><span data-ar="دخول" data-en="Sign in">دخول</span></span>
+          <span data-auth-in class="hidden"><span data-auth-name></span></span>
+        </span>
+      </button>
       <button id="lang-toggle" class="border border-gold/60 px-3 py-1.5 text-xs font-bold tracking-wider text-gold transition hover:bg-gold hover:text-navy-900" aria-label="Switch language">
         <span id="lang-label">EN</span>
       </button>
@@ -298,6 +305,10 @@
 
   <div id="mobile-menu" class="hidden border-t border-white/10 bg-navy-900 px-4 py-4 lg:hidden">
     <ul class="grid gap-1 text-sm font-bold text-white/90">
+      <li><button type="button" data-auth-open class="block w-full border-b border-white/10 px-3 py-2.5 text-start hover:bg-gold/15 hover:text-gold sm:hidden" aria-haspopup="dialog">
+        <span data-auth-out><span data-ar="دخول" data-en="Sign in">دخول</span></span>
+        <span data-auth-in class="hidden"><span data-auth-name></span></span>
+      </button></li>
       <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#home"     data-ar="الرئيسية"        data-en="Home">الرئيسية</a></li>
       <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#about"    data-ar="من نحن"          data-en="About">من نحن</a></li>
       <li><a class="block px-3 py-2.5 hover:bg-gold/15 hover:text-gold" href="#chairman" data-ar="كلمة الرئيس"     data-en="Chairman">كلمة الرئيس</a></li>
@@ -884,6 +895,105 @@
   </form>
 </dialog>
 
+<!-- ══════════ AUTH MODAL ══════════ -->
+<dialog id="auth-modal" class="w-[92vw] max-w-md bg-white p-0 shadow-panel">
+  <div class="flex items-center justify-between bg-navy-900 px-6 py-4">
+    <h3 class="font-display text-xl font-bold text-white" data-ar="حسابك" data-en="Your Account">حسابك</h3>
+    <button id="auth-x" type="button" class="grid h-8 w-8 place-items-center border border-white/25 text-white/70 hover:border-gold hover:text-gold" aria-label="Close">✕</button>
+  </div>
+
+  <div class="p-6">
+    <div class="grid grid-cols-2 border border-navy-700/20" role="tablist">
+      <button type="button" id="tab-signup" class="auth-tab px-4 py-2.5 text-xs font-extrabold tracking-wider uppercase transition bg-transparent text-navy/70" data-ar="حساب جديد" data-en="Register" role="tab" aria-selected="false">حساب جديد</button>
+      <button type="button" id="tab-signin" class="auth-tab px-4 py-2.5 text-xs font-extrabold tracking-wider uppercase transition bg-navy-700 text-white" data-ar="تسجيل الدخول" data-en="Sign in" role="tab" aria-selected="true">تسجيل الدخول</button>
+    </div>
+
+    <p id="auth-msg" class="mt-4 hidden border px-4 py-3 text-xs font-bold leading-relaxed"></p>
+
+    <form id="auth-form" class="mt-5 space-y-3" novalidate>
+      <div id="auth-name-wrap">
+        <input id="auth-name" type="text" autocomplete="name"
+               class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+               data-ar-ph="الاسم الكامل" data-en-ph="Full name" placeholder="الاسم الكامل">
+      </div>
+      <input id="auth-email" type="email" required dir="ltr" autocomplete="email"
+             class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+             data-ar-ph="البريد الإلكتروني" data-en-ph="Email address" placeholder="البريد الإلكتروني">
+      <input id="auth-password" type="password" required minlength="8" dir="ltr" autocomplete="current-password"
+             class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+             data-ar-ph="كلمة المرور — ٨ أحرف فأكثر" data-en-ph="Password — 8+ characters" placeholder="كلمة المرور — ٨ أحرف فأكثر">
+      <button type="button" id="auth-forgot" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="نسيت كلمة المرور؟" data-en="Forgot password?">نسيت كلمة المرور؟</button>
+
+      <div class="pt-1">
+        <button type="submit" id="auth-submit-signup" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إنشاء الحساب" data-en="Create Account">إنشاء الحساب</button>
+        <button type="submit" id="auth-submit-signin" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</button>
+        <button type="submit" id="auth-submit-forgot" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إرسال رابط الاستعادة" data-en="Send Reset Link">إرسال رابط الاستعادة</button>
+      </div>
+
+      <div id="auth-hint-to-signin" class="pt-2 text-center text-xs text-charcoal/70">
+        <span data-ar="لديك حساب بالفعل؟" data-en="Already have an account?">لديك حساب بالفعل؟</span>
+        <button type="button" id="go-signin" class="font-extrabold text-navy hover:text-gold-dark" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</button>
+      </div>
+      <div id="auth-hint-to-signup" class="pt-2 text-center text-xs text-charcoal/70">
+        <span data-ar="ليس لديك حساب؟" data-en="No account yet?">ليس لديك حساب؟</span>
+        <button type="button" id="go-signup" class="font-extrabold text-navy hover:text-gold-dark" data-ar="أنشئ حساباً" data-en="Create one">أنشئ حساباً</button>
+      </div>
+    </form>
+
+    <div id="auth-hint-back" class="pt-3 text-center">
+      <button type="button" id="go-back" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="العودة إلى تسجيل الدخول" data-en="Back to sign in">العودة إلى تسجيل الدخول</button>
+    </div>
+
+    <div id="auth-resend" class="pt-3 text-center">
+      <button type="button" id="btn-resend" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="إعادة إرسال رابط التأكيد" data-en="Resend confirmation email">إعادة إرسال رابط التأكيد</button>
+    </div>
+
+    <div id="auth-social">
+      <div class="my-5 flex items-center gap-3">
+        <span class="h-px flex-1 bg-[var(--hairline)]"></span>
+        <span class="text-[10px] font-extrabold tracking-wider2 text-charcoal/55 uppercase" data-ar="أو" data-en="or">أو</span>
+        <span class="h-px flex-1 bg-[var(--hairline)]"></span>
+      </div>
+      <div class="grid gap-3">
+        <button type="button" id="btn-google" class="flex w-full items-center justify-center gap-3 border border-navy-700/25 px-5 py-3 text-xs font-extrabold tracking-wider uppercase text-charcoal transition hover:border-gold hover:bg-cloud">
+          <svg viewBox="0 0 18 18" class="h-4 w-4 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62Z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18Z"/><path fill="#FBBC05" d="M3.97 10.72a5.41 5.41 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33Z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58Z"/></svg>
+          <span data-ar="المتابعة عبر Google" data-en="Continue with Google">المتابعة عبر Google</span>
+        </button>
+        <button type="button" id="btn-microsoft" class="flex w-full items-center justify-center gap-3 border border-navy-700/25 px-5 py-3 text-xs font-extrabold tracking-wider uppercase text-charcoal transition hover:border-gold hover:bg-cloud">
+          <svg viewBox="0 0 21 21" class="h-4 w-4 shrink-0" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg>
+          <span data-ar="المتابعة عبر Microsoft" data-en="Continue with Microsoft">المتابعة عبر Microsoft</span>
+        </button>
+      </div>
+      <p class="mt-5 text-[11px] leading-relaxed text-charcoal/55"
+         data-ar="بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط."
+         data-en="By creating an account you agree to your data being processed for the sole purpose of providing account services.">
+        بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط.
+      </p>
+    </div>
+  </div>
+</dialog>
+
+<!-- ══════════ ACCOUNT MODAL ══════════ -->
+<dialog id="account-modal" class="w-[92vw] max-w-sm bg-white p-0 shadow-panel">
+  <div class="flex items-center justify-between bg-navy-900 px-6 py-4">
+    <h3 class="font-display text-xl font-bold text-white" data-ar="حسابي" data-en="My Account">حسابي</h3>
+    <button id="account-x" type="button" class="grid h-8 w-8 place-items-center border border-white/25 text-white/70 hover:border-gold hover:text-gold" aria-label="Close">✕</button>
+  </div>
+  <div class="p-6">
+    <div class="flex items-center gap-4">
+      <span id="account-avatar" class="grid h-14 w-14 shrink-0 place-items-center bg-gold font-display text-lg font-bold text-navy-900"></span>
+      <span class="min-w-0">
+        <span id="account-name" class="block truncate font-bold text-navy"></span>
+        <span id="account-email" class="block truncate text-xs text-charcoal/70" dir="ltr"></span>
+      </span>
+    </div>
+    <div class="mt-6 grid gap-3">
+      <button id="btn-signout" type="button" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="تسجيل الخروج" data-en="Sign Out">تسجيل الخروج</button>
+      <button id="account-close" type="button" class="w-full border border-navy-700/25 px-5 py-3 text-xs font-extrabold tracking-wider uppercase text-charcoal hover:bg-cloud" data-ar="إغلاق" data-en="Close">إغلاق</button>
+    </div>
+  </div>
+</dialog>
+
 <!-- ══════════ TOAST ══════════ -->
 <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 translate-y-4 bg-navy-900 px-6 py-3.5 text-sm font-bold text-white opacity-0 shadow-panel transition-all duration-300"></div>
 
@@ -1038,6 +1148,42 @@
     toastTimer = setTimeout(function () {
       toast.classList.add('opacity-0', 'translate-y-4');
     }, 3500);
+  }
+
+  /* ── Auth ──────────────────────────────────────────────────────
+     /auth.js and /vendor/supabase.umd.js are fetched only when the
+     visitor clicks Sign in / Register, or when the URL carries an
+     OAuth ?code= / ?error=. Nothing here touches the critical path. */
+  window.ifiiaToast = showToast;
+
+  window.ifiiaRenderAuthNav = function () {
+    var user = null;
+    try {
+      var raw = localStorage.getItem('sb-nogkagjuubrupybnoqib-auth-token');
+      if (raw) { var s = JSON.parse(raw); if (s && s.user) { user = s.user; } }
+    } catch (err) {}
+    document.querySelectorAll('[data-auth-out]').forEach(function (el) { el.classList.toggle('hidden', !!user); });
+    document.querySelectorAll('[data-auth-in]').forEach(function (el) { el.classList.toggle('hidden', !user); });
+    var name = '';
+    if (user) {
+      var m = user.user_metadata || {};
+      name = m.full_name || m.name || m.preferred_username || user.email || '';
+    }
+    document.querySelectorAll('[data-auth-name]').forEach(function (el) { el.textContent = name; });
+  };
+  window.ifiiaRenderAuthNav();
+
+  function loadAuth() {
+    return import('/auth.js').catch(function (err) { console.error('[auth] load failed', err); });
+  }
+  document.querySelectorAll('[data-auth-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      closeMenu();
+      loadAuth().then(function (m) { if (m && m.openAuth) { m.openAuth(); } });
+    });
+  });
+  if (/[?&](code|error)=/.test(location.search) || /access_token=/.test(location.hash)) {
+    loadAuth();
   }
 })();
 </script>
