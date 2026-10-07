@@ -49,7 +49,10 @@ section, header, footer { background-clip: content-box; }
 .reveal { opacity:0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.on { opacity:1; transform:none; }
 
-dialog::backdrop { background: rgba(11,27,51,.7); backdrop-filter: blur(4px); }
+dialog::backdrop { background: rgba(11,27,51,.72); }
+dialog[open] { animation: dlg-in .18s ease-out; }
+@keyframes dlg-in { from { opacity:0; transform: translateY(12px) scale(.985); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce) { dialog[open] { animation:none; } }
 .bidi { unicode-bidi: isolate; }
 
 /* Mock / unconfirmed-data badge */

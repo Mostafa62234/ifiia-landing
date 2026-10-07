@@ -897,61 +897,72 @@
 
 <!-- ══════════ AUTH MODAL ══════════ -->
 <dialog id="auth-modal" class="w-[92vw] max-w-md bg-white p-0 shadow-panel">
-  <div class="flex items-center justify-between bg-navy-900 px-6 py-4">
+  <div class="flex items-center justify-between border-b-2 border-gold/50 bg-navy-700 px-6 py-4">
     <h3 class="font-display text-xl font-bold text-white" data-ar="حسابك" data-en="Your Account">حسابك</h3>
     <button id="auth-x" type="button" class="grid h-8 w-8 place-items-center border border-white/25 text-white/70 hover:border-gold hover:text-gold" aria-label="Close">✕</button>
   </div>
 
-  <div class="p-6">
+  <div id="auth-body" class="p-6 opacity-60 pointer-events-none" aria-busy="true">
     <div class="grid grid-cols-2 border border-navy-700/20" role="tablist">
       <button type="button" id="tab-signup" class="auth-tab px-4 py-2.5 text-xs font-extrabold tracking-wider uppercase transition bg-transparent text-navy/70" data-ar="حساب جديد" data-en="Register" role="tab" aria-selected="false">حساب جديد</button>
       <button type="button" id="tab-signin" class="auth-tab px-4 py-2.5 text-xs font-extrabold tracking-wider uppercase transition bg-navy-700 text-white" data-ar="تسجيل الدخول" data-en="Sign in" role="tab" aria-selected="true">تسجيل الدخول</button>
     </div>
 
-    <p id="auth-msg" class="mt-4 hidden border px-4 py-3 text-xs font-bold leading-relaxed"></p>
+    <p id="auth-msg" role="status" aria-live="polite" class="mt-4 hidden border px-4 py-3 text-[13px] font-bold leading-relaxed"></p>
+
+    <div id="auth-busy" role="status" aria-live="polite" class="hidden items-center justify-center gap-2 pt-4 text-[13px] font-bold text-navy/70">
+      <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 animate-spin" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9" stroke-linecap="round"/></svg>
+      <span data-ar="جارٍ التنفيذ…" data-en="Please wait…">جارٍ التنفيذ…</span>
+    </div>
 
     <form id="auth-form" class="mt-5 space-y-3" novalidate>
-      <div id="auth-name-wrap">
+      <div id="auth-name-wrap" class="hidden">
         <input id="auth-name" type="text" autocomplete="name"
-               class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+               class="w-full border border-navy-700/20 bg-cloud px-4 py-3 text-[15px] focus:border-gold"
                data-ar-ph="الاسم الكامل" data-en-ph="Full name" placeholder="الاسم الكامل">
       </div>
       <input id="auth-email" type="email" required dir="ltr" autocomplete="email"
-             class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
+             class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-[15px] focus:border-gold"
              data-ar-ph="البريد الإلكتروني" data-en-ph="Email address" placeholder="البريد الإلكتروني">
-      <input id="auth-password" type="password" required minlength="8" dir="ltr" autocomplete="current-password"
-             class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 text-sm focus:border-gold"
-             data-ar-ph="كلمة المرور — ٨ أحرف فأكثر" data-en-ph="Password — 8+ characters" placeholder="كلمة المرور — ٨ أحرف فأكثر">
-      <button type="button" id="auth-forgot" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="نسيت كلمة المرور؟" data-en="Forgot password?">نسيت كلمة المرور؟</button>
+      <div id="auth-password-wrap" class="relative">
+        <input id="auth-password" type="password" required minlength="8" dir="ltr" autocomplete="current-password"
+               class="bidi w-full border border-navy-700/20 bg-cloud px-4 py-3 pe-11 text-[15px] focus:border-gold"
+               data-ar-ph="كلمة المرور — ٨ أحرف فأكثر" data-en-ph="Password — 8+ characters" placeholder="كلمة المرور — ٨ أحرف فأكثر">
+        <button type="button" id="auth-eye" class="absolute end-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center text-charcoal/55 hover:text-navy" aria-label="Show password" aria-pressed="false">
+          <svg id="eye-show" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg id="eye-hide" viewBox="0 0 24 24" class="hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M1 1l22 22"/></svg>
+        </button>
+      </div>
+      <button type="button" id="auth-forgot" class="text-[13px] font-bold text-navy hover:text-gold-dark" data-ar="نسيت كلمة المرور؟" data-en="Forgot password?">نسيت كلمة المرور؟</button>
 
       <div class="pt-1">
-        <button type="submit" id="auth-submit-signup" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إنشاء الحساب" data-en="Create Account">إنشاء الحساب</button>
+        <button type="submit" id="auth-submit-signup" class="btn-gold hidden w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إنشاء الحساب" data-en="Create Account">إنشاء الحساب</button>
         <button type="submit" id="auth-submit-signin" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</button>
-        <button type="submit" id="auth-submit-forgot" class="btn-gold w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إرسال رابط الاستعادة" data-en="Send Reset Link">إرسال رابط الاستعادة</button>
+        <button type="submit" id="auth-submit-forgot" class="btn-gold hidden w-full px-5 py-3 text-xs font-extrabold tracking-wider uppercase" data-ar="إرسال رابط الاستعادة" data-en="Send Reset Link">إرسال رابط الاستعادة</button>
       </div>
 
-      <div id="auth-hint-to-signin" class="pt-2 text-center text-xs text-charcoal/70">
+      <div id="auth-hint-to-signin" class="hidden pt-2 text-center text-[13px] text-charcoal/75">
         <span data-ar="لديك حساب بالفعل؟" data-en="Already have an account?">لديك حساب بالفعل؟</span>
         <button type="button" id="go-signin" class="font-extrabold text-navy hover:text-gold-dark" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</button>
       </div>
-      <div id="auth-hint-to-signup" class="pt-2 text-center text-xs text-charcoal/70">
+      <div id="auth-hint-to-signup" class="pt-2 text-center text-[13px] text-charcoal/75">
         <span data-ar="ليس لديك حساب؟" data-en="No account yet?">ليس لديك حساب؟</span>
         <button type="button" id="go-signup" class="font-extrabold text-navy hover:text-gold-dark" data-ar="أنشئ حساباً" data-en="Create one">أنشئ حساباً</button>
       </div>
     </form>
 
-    <div id="auth-hint-back" class="pt-3 text-center">
-      <button type="button" id="go-back" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="العودة إلى تسجيل الدخول" data-en="Back to sign in">العودة إلى تسجيل الدخول</button>
+    <div id="auth-hint-back" class="hidden pt-3 text-center">
+      <button type="button" id="go-back" class="text-[13px] font-bold text-navy hover:text-gold-dark" data-ar="العودة إلى تسجيل الدخول" data-en="Back to sign in">العودة إلى تسجيل الدخول</button>
     </div>
 
-    <div id="auth-resend" class="pt-3 text-center">
-      <button type="button" id="btn-resend" class="text-xs font-bold text-navy hover:text-gold-dark" data-ar="إعادة إرسال رابط التأكيد" data-en="Resend confirmation email">إعادة إرسال رابط التأكيد</button>
+    <div id="auth-resend" class="hidden pt-3 text-center">
+      <button type="button" id="btn-resend" class="text-[13px] font-bold text-navy hover:text-gold-dark" data-ar="إعادة إرسال رابط التأكيد" data-en="Resend confirmation email">إعادة إرسال رابط التأكيد</button>
     </div>
 
     <div id="auth-social">
-      <div class="my-5 flex items-center gap-3">
+      <div id="auth-or" class="my-5 flex items-center gap-3">
         <span class="h-px flex-1 bg-[var(--hairline)]"></span>
-        <span class="text-[10px] font-extrabold tracking-wider2 text-charcoal/55 uppercase" data-ar="أو" data-en="or">أو</span>
+        <span class="text-[11px] font-extrabold tracking-wider2 text-charcoal/65 uppercase" data-ar="أو" data-en="or">أو</span>
         <span class="h-px flex-1 bg-[var(--hairline)]"></span>
       </div>
       <div class="grid gap-3">
@@ -964,18 +975,18 @@
           <span data-ar="المتابعة عبر Microsoft" data-en="Continue with Microsoft">المتابعة عبر Microsoft</span>
         </button>
       </div>
-      <p class="mt-5 text-[11px] leading-relaxed text-charcoal/55"
-         data-ar="بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط."
-         data-en="By creating an account you agree to your data being processed for the sole purpose of providing account services.">
-        بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط.
-      </p>
     </div>
+    <p id="auth-consent" class="hidden mt-5 text-xs leading-relaxed text-charcoal/70"
+       data-ar="بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط."
+       data-en="By creating an account you agree to your data being processed for the sole purpose of providing account services.">
+      بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط.
+    </p>
   </div>
 </dialog>
 
 <!-- ══════════ ACCOUNT MODAL ══════════ -->
 <dialog id="account-modal" class="w-[92vw] max-w-sm bg-white p-0 shadow-panel">
-  <div class="flex items-center justify-between bg-navy-900 px-6 py-4">
+  <div class="flex items-center justify-between border-b-2 border-gold/50 bg-navy-700 px-6 py-4">
     <h3 class="font-display text-xl font-bold text-white" data-ar="حسابي" data-en="My Account">حسابي</h3>
     <button id="account-x" type="button" class="grid h-8 w-8 place-items-center border border-white/25 text-white/70 hover:border-gold hover:text-gold" aria-label="Close">✕</button>
   </div>
@@ -984,7 +995,7 @@
       <span id="account-avatar" class="grid h-14 w-14 shrink-0 place-items-center bg-gold font-display text-lg font-bold text-navy-900"></span>
       <span class="min-w-0">
         <span id="account-name" class="block truncate font-bold text-navy"></span>
-        <span id="account-email" class="block truncate text-xs text-charcoal/70" dir="ltr"></span>
+        <span id="account-email" class="block truncate text-[13px] text-charcoal/75" dir="ltr"></span>
       </span>
     </div>
     <div class="mt-6 grid gap-3">
