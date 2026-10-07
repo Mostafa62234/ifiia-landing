@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /*?lang=
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.elsharifint.com/sitemap.xml

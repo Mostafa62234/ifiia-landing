@@ -1,0 +1,16 @@
+{
+  "name": "I.F.I.A — المؤسسة الدولية للتحكيم الدولي والتدريب",
+  "short_name": "I.F.I.A",
+  "description": "تحكيم دولي، تسوية المنازعات، منازعات الملكية الفكرية، الاستثمار وصياغة العقود — دورات ودبلومات تدريبية.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B1B33",
+  "theme_color": "#0B1B33",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/og-image.png", "sizes": "1200x630", "type": "image/png", "purpose": "any" }
+  ]
+}
