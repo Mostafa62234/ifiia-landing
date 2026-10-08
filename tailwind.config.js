@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./index.html', './auth.js'],
+  content: ['./index.html', './auth.js', './privacy.html', './terms.html', './404.html'],
   safelist: [
     'hidden', 'active', 'opacity-0', 'translate-y-4',
     'bg-navy-700', 'bg-transparent', 'text-white', 'border-navy-700',

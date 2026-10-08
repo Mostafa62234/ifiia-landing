@@ -19,6 +19,9 @@
 /auth.js
   Cache-Control: public, max-age=600, must-revalidate
 
+/legal.js
+  Cache-Control: public, max-age=600, must-revalidate
+
 # Third-party vendor bundle, replaced only on deliberate upgrades.
 /vendor/*
   Content-Type: application/javascript

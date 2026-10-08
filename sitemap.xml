@@ -3,11 +3,29 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ifiia-landing-new.pages.dev/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://ifiia-landing-new.pages.dev/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ifiia-landing-new.pages.dev/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ifiia-landing-new.pages.dev/"/>
+  </url>
+  <url>
+    <loc>https://ifiia-landing-new.pages.dev/privacy.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ifiia-landing-new.pages.dev/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ifiia-landing-new.pages.dev/privacy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ifiia-landing-new.pages.dev/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://ifiia-landing-new.pages.dev/terms.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ifiia-landing-new.pages.dev/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ifiia-landing-new.pages.dev/terms.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ifiia-landing-new.pages.dev/terms.html"/>
   </url>
 </urlset>

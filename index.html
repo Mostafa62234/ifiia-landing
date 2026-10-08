@@ -48,7 +48,8 @@
 <link rel="apple-touch-icon" href="/og-image.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="stylesheet" href="/fonts.css">
+<link rel="preload" href="/fonts/amiri-400-normal-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cairo-400-normal-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 
 <!-- ══ SEO: JSON-LD structured data ══ -->
@@ -862,7 +863,13 @@
 
     <div class="mt-6 flex flex-col items-center justify-between gap-3 text-xs text-white/45 sm:flex-row">
       <p data-ar="© 2026 المؤسسة الدولية للتحكيم الدولي والتدريب. جميع الحقوق محفوظة." data-en="© 2026 I.F.I.A. All rights reserved.">© 2026 المؤسسة الدولية للتحكيم الدولي والتدريب. جميع الحقوق محفوظة.</p>
-      <p class="text-gold/70" data-ar="نموذج أولي للعرض — الأسعار وأسماء الأعضاء تجريبية" data-en="Demo preview — prices and member names are mock-ups">نموذج أولي للعرض — الأسعار وأسماء الأعضاء تجريبية</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+        <a href="/privacy.html" class="text-white/60 underline decoration-gold/50 underline-offset-2 hover:text-gold transition" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+        <span class="h-3 w-px bg-white/25"></span>
+        <a href="/terms.html" class="text-white/60 underline decoration-gold/50 underline-offset-2 hover:text-gold transition" data-ar="شروط الاستخدام" data-en="Terms of Use">شروط الاستخدام</a>
+        <span class="h-3 w-px bg-white/25"></span>
+        <p class="text-gold/70" data-ar="نموذج أولي للعرض — الأسعار وأسماء الأعضاء تجريبية" data-en="Demo preview — prices and member names are mock-ups">نموذج أولي للعرض — الأسعار وأسماء الأعضاء تجريبية</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -972,10 +979,12 @@
         </button>
       </div>
     </div>
-    <p id="auth-consent" class="hidden mt-5 text-xs leading-relaxed text-charcoal/70"
-       data-ar="بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط."
-       data-en="By creating an account you agree to your data being processed for the sole purpose of providing account services.">
-      بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب فقط.
+    <p id="auth-consent" class="hidden mt-5 text-xs leading-relaxed text-charcoal/70">
+      <span data-ar="بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب، وعلى" data-en="By creating an account you agree to your data being processed for the sole purpose of providing account services, and to the">بإنشائك حساباً فأنت توافق على معالجة بياناتك لغرض تقديم خدمات الحساب، وعلى</span>
+      <a href="/terms.html" class="font-bold text-navy-700 underline decoration-gold underline-offset-2 hover:text-gold transition" data-ar="شروط الاستخدام" data-en="Terms of Use">شروط الاستخدام</a>
+      <span data-ar="و" data-en="and">و</span>
+      <a href="/privacy.html" class="font-bold text-navy-700 underline decoration-gold underline-offset-2 hover:text-gold transition" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+      <span data-ar="." data-en=".">.</span>
     </p>
   </div>
 </dialog>
