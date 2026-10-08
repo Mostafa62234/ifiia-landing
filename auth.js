@@ -171,7 +171,7 @@ function applyProviders(j) {
 
   const on = (names) => names.some((n) => enabled.indexOf(n) !== -1);
   let shown = 0;
-  [['btn-google', ['google']], ['btn-microsoft', ['azure', 'microsoft']]].forEach(([id, names]) => {
+  [['btn-google', ['google']]].forEach(([id, names]) => {
     const b = $(id);
     if (!b) return;
     const ok = on(names);
@@ -386,7 +386,6 @@ function init() {
     }
   };
   $('btn-google').addEventListener('click', oauth('google'));
-  $('btn-microsoft').addEventListener('click', oauth('azure'));
 
   /* sign out */
   $('btn-signout').addEventListener('click', async () => {
